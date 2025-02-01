@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %} Contact {% endblock title %}
+
+{% block body %}
+<center><img src="/static/img4.jpg" alt="Girl in a jacket" width="700" height="400"></center>
+<style>
+  {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f3f4f6;
+  }
+
+  .form-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 1rem;
+  }
+
+  .form-group input, 
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+
+  .form-group input:focus, 
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  .form-group textarea {
+    resize: none;
+    height: 100px;
+  }
+
+  .form-group button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .form-group button:hover {
+    background: #0056b3;
+  }
+
+  .form-footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+
+  .form-footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .form-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+<center><div class="form-container">
+  <h2>Information Form</h2>
+  <form method="post" action="contact">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail Address:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+    </div>
+    <div class="form-group">
+      <label for="info">What kind of information do you want?</label>
+      <textarea id="desc" name="desc" placeholder="Write your message here..." required></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+    <div class="form-footer">
+      Need help? <a href="#">Contact us</a>
+    </div>
+  </form>
+</div>
+</center>
+{% endblock body %}
